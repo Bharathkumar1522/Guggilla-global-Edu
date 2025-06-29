@@ -104,9 +104,9 @@ const Testimonials: React.FC = () => {
           <p className="text-secondary-300 mb-6">Ready to be our next success story?</p>
           <button 
             onClick={handleWhatsAppClick}
-            className="animated-button bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center gap-3 mx-auto"
+            className="animated-button bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-4 rounded-full font-semibold text-sm sm:text-base md:text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center gap-3 mx-auto"
           >
-            <MessageCircle size={20} />
+            <MessageCircle size={20} className="hidden sm:block" />
             Start Your Journey Today
           </button>
         </div>

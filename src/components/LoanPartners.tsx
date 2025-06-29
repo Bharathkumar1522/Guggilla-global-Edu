@@ -48,7 +48,7 @@ const LoanPartners: React.FC = () => {
               <img 
                 src={partner.logo}
                 alt={`${partner.name} logo`}
-                className="max-w-full max-h-20 object-contain group-hover:scale-110 transition-transform duration-300 filter grayscale hover:grayscale-0"
+                className="max-w-full max-h-20 object-contain group-hover:scale-110 transition-transform duration-300 filter grayscale group-hover:grayscale-0"
                 onError={(e) => {
                   // Fallback to a placeholder if logo fails to load
                   const target = e.target as HTMLImageElement;
@@ -98,9 +98,9 @@ const LoanPartners: React.FC = () => {
           </div>
           <button 
             onClick={handleWhatsAppClick}
-            className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2 mx-auto"
+            className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-4 rounded-full font-semibold text-sm sm:text-base md:text-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2 mx-auto"
           >
-            <MessageCircle size={20} />
+            <MessageCircle size={20} className="hidden sm:block" />
             Get Loan Guidance
           </button>
         </div>

@@ -4,6 +4,13 @@ import { MessageCircle, Linkedin, Instagram, Mail } from 'lucide-react';
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer className="bg-secondary-900 text-white py-16">
       <div className="container mx-auto px-6">
@@ -51,7 +58,9 @@ const Footer: React.FC = () => {
                 <Linkedin size={24} />
               </a>
               <a 
-                href="#" 
+                href="https://www.instagram.com/guggillaglobaledu?igsh=MWRiZzRnNm9zcjNlMA=="
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-secondary-400 hover:text-pink-400 transition-colors duration-300"
               >
                 <Instagram size={24} />
@@ -75,11 +84,30 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-bold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-secondary-300">
-              <li><a href="#" className="hover:text-primary-400 transition-colors duration-300">About Us</a></li>
-              <li><a href="#" className="hover:text-primary-400 transition-colors duration-300">Success Stories</a></li>
-              <li><a href="#" className="hover:text-primary-400 transition-colors duration-300">Blog</a></li>
-              <li><a href="#" className="hover:text-primary-400 transition-colors duration-300">Contact</a></li>
-              <li><a href="#" className="hover:text-primary-400 transition-colors duration-300">FAQ</a></li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('why-choose-us')}
+                  className="hover:text-primary-400 transition-colors duration-300 text-left"
+                >
+                  About Us
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('testimonials')}
+                  className="hover:text-primary-400 transition-colors duration-300 text-left"
+                >
+                  Success Stories
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('contact')}
+                  className="hover:text-primary-400 transition-colors duration-300 text-left"
+                >
+                  Contact
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -107,7 +135,7 @@ const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="border-t border-secondary-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-secondary-400 text-sm">
+            <p className="text-secondary-400 text-sm text-center md:text-left">
               Copyright © {currentYear} Guggilla Global Education. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm">

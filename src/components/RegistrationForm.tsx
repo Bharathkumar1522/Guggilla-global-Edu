@@ -191,17 +191,17 @@ const RegistrationForm: React.FC = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="animated-button w-full flex items-center justify-center gap-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="animated-button w-full flex items-center justify-center gap-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-sm sm:text-base md:text-lg transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <>
                       <Loader size={20} className="animate-spin" />
-                      Sending...
+                      <span className="text-sm sm:text-base">Sending...</span>
                     </>
                   ) : (
                     <>
-                      <Send size={20} />
-                      Submit & Get Free Consultation
+                      <Send size={20} className="hidden sm:block" />
+                      <span className="text-sm sm:text-base">Submit & Get Free Consultation</span>
                     </>
                   )}
                 </button>
