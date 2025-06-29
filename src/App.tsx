@@ -79,22 +79,24 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App overflow-x-hidden min-h-screen">
       {showLoader && <LoadingScreen ref={loaderRef} />}
       
-      <Navbar />
-      <Hero />
-      <Services />
-      <WhyChooseUs />
-      <StudySteps />
-      <PartnerUniversities />
-      <PartneredCompanies />
-      <LoanPartners />
-      <Testimonials />
-      <Contact />
-      <RegistrationForm />
-      <Footer />
-      <FloatingWhatsApp />
+      <div className="w-full max-w-full overflow-x-hidden">
+        <Navbar />
+        <Hero />
+        <Services />
+        <WhyChooseUs />
+        <StudySteps />
+        <PartnerUniversities />
+        <PartneredCompanies />
+        <LoanPartners />
+        <Testimonials />
+        <Contact />
+        <RegistrationForm />
+        <Footer />
+        <FloatingWhatsApp />
+      </div>
     </div>
   );
 }

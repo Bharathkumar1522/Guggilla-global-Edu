@@ -61,7 +61,9 @@ const Navbar: React.FC = () => {
               <img 
                 src="/logo rg.pdf" 
                 alt="Guggilla Global Education Logo"
-                className="h-10 w-auto lg:h-12"
+                className={`h-12 w-auto sm:h-14 lg:h-12 xl:h-14 transition-opacity duration-300 ${
+                  isScrolled ? 'opacity-100' : 'opacity-0'
+                }`}
                 onError={(e) => {
                   // Fallback to text logo if image fails to load
                   const target = e.target as HTMLImageElement;
@@ -71,23 +73,29 @@ const Navbar: React.FC = () => {
                 }}
               />
               <div className="hidden">
-                <div className={`p-2 rounded-full transition-colors duration-300 ${
-                  isScrolled ? 'bg-blue-500' : 'bg-white/20 backdrop-blur-sm'
+                <div className={`p-2 rounded-full transition-all duration-300 ${
+                  isScrolled 
+                    ? 'bg-blue-500 opacity-100' 
+                    : 'bg-white/20 backdrop-blur-sm opacity-0'
                 }`}>
-                  <div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold text-xs">GG</span>
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-8 lg:h-8 xl:w-10 xl:h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                    <span className="text-white font-bold text-sm sm:text-base lg:text-sm xl:text-base">GG</span>
                   </div>
                 </div>
               </div>
             </div>
             <div className="hidden sm:block">
-              <h1 className={`font-bold text-lg transition-colors duration-300 ${
-                isScrolled ? 'text-secondary-900' : 'text-white'
+              <h1 className={`font-bold text-lg transition-all duration-300 ${
+                isScrolled 
+                  ? 'text-secondary-900 opacity-100' 
+                  : 'text-secondary-900 opacity-0'
               }`}>
                 Guggilla Global
               </h1>
-              <p className={`text-xs transition-colors duration-300 ${
-                isScrolled ? 'text-secondary-600' : 'text-white/80'
+              <p className={`text-xs transition-all duration-300 ${
+                isScrolled 
+                  ? 'text-secondary-600 opacity-100' 
+                  : 'text-secondary-600 opacity-0'
               }`}>
                 Education
               </p>
@@ -100,8 +108,10 @@ const Navbar: React.FC = () => {
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className={`font-medium transition-colors duration-300 hover:text-blue-500 ${
-                  isScrolled ? 'text-secondary-700' : 'text-white hover:text-blue-200'
+                className={`font-medium transition-all duration-300 hover:text-blue-500 ${
+                  isScrolled 
+                    ? 'text-secondary-700 opacity-100' 
+                    : 'text-secondary-700 opacity-0'
                 }`}
               >
                 {link.name}
@@ -110,7 +120,9 @@ const Navbar: React.FC = () => {
             
             <button
               onClick={handleWhatsAppClick}
-              className="flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-4 py-2 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
+              className={`flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-4 py-2 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl ${
+                isScrolled ? 'opacity-100' : 'opacity-0'
+              }`}
             >
               <MessageCircle size={18} />
               <span className="hidden xl:inline">WhatsApp</span>
@@ -120,10 +132,10 @@ const Navbar: React.FC = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`lg:hidden p-2 rounded-lg transition-colors duration-300 ${
+            className={`lg:hidden p-2 rounded-lg transition-all duration-300 ${
               isScrolled 
-                ? 'text-secondary-700 hover:bg-secondary-100' 
-                : 'text-white hover:bg-white/20'
+                ? 'text-secondary-700 hover:bg-secondary-100 opacity-100' 
+                : 'text-secondary-700 hover:bg-secondary-100 opacity-0'
             }`}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
