@@ -37,7 +37,7 @@ const WhyChooseUs: React.FC = () => {
   };
 
   return (
-    <section className="benefits-section py-20 bg-gradient-to-br from-blue-50 to-white">
+    <section id="why-choose-us" className="benefits-section py-20 bg-gradient-to-br from-blue-50 to-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-secondary-900 mb-4">

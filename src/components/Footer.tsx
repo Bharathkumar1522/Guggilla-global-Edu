@@ -10,9 +10,28 @@ const Footer: React.FC = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-bold mb-4 text-primary-400">
-              Guggilla Global Education
-            </h3>
+            <div className="flex items-center gap-3 mb-4">
+              <img 
+                src="/logo rg.pdf" 
+                alt="Guggilla Global Education Logo"
+                className="h-8 w-auto"
+                onError={(e) => {
+                  // Fallback to text logo if image fails to load
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  const fallback = target.nextElementSibling as HTMLElement;
+                  if (fallback) fallback.style.display = 'block';
+                }}
+              />
+              <div className="hidden">
+                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">GG</span>
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold text-primary-400">
+                Guggilla Global Education
+              </h3>
+            </div>
             <p className="text-secondary-300 mb-4 leading-relaxed">
               Your trusted partner for studying in the UK and beyond. We make your international education dreams come true.
             </p>

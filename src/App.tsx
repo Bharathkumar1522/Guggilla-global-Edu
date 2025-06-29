@@ -1,8 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Lenis from 'lenis';
+import { gsap } from 'gsap';
 import { initScrollAnimations, addHoverAnimations } from './utils/animations';
 
 // Components
+import LoadingScreen from './components/LoadingScreen';
+import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import WhyChooseUs from './components/WhyChooseUs';
@@ -17,6 +20,9 @@ import FloatingWhatsApp from './components/FloatingWhatsApp';
 import Footer from './components/Footer';
 
 function App() {
+  const [showLoader, setShowLoader] = useState(true);
+  const loaderRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     // Initialize Lenis smooth scroll
     const lenis = new Lenis({
@@ -34,11 +40,37 @@ function App() {
 
     requestAnimationFrame(raf);
 
-    // Initialize animations
-    const timer = setTimeout(() => {
-      initScrollAnimations();
-      addHoverAnimations();
-    }, 100);
+    // Initialize animations and wait for completion
+    const initializeApp = async () => {
+      try {
+        // Wait for initial animations to complete
+        await initScrollAnimations();
+        
+        // Add hover animations
+        addHoverAnimations();
+        
+        // Fade out loading screen
+        if (loaderRef.current) {
+          gsap.to(loaderRef.current, {
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+            onComplete: () => {
+              setShowLoader(false);
+            }
+          });
+        }
+      } catch (error) {
+        console.error('Error initializing animations:', error);
+        // Fallback: hide loader after timeout
+        setTimeout(() => {
+          setShowLoader(false);
+        }, 2000);
+      }
+    };
+
+    // Small delay to ensure DOM is ready
+    const timer = setTimeout(initializeApp, 100);
 
     return () => {
       clearTimeout(timer);
@@ -48,6 +80,9 @@ function App() {
 
   return (
     <div className="App">
+      {showLoader && <LoadingScreen ref={loaderRef} />}
+      
+      <Navbar />
       <Hero />
       <Services />
       <WhyChooseUs />

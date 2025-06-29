@@ -3,34 +3,47 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const initScrollAnimations = () => {
-  // Enhanced hero text animations
-  gsap.fromTo('.hero-title', 
-    { y: 60, opacity: 0 },
-    { y: 0, opacity: 1, duration: 1.2, ease: 'power3.out' }
-  );
+export const initScrollAnimations = (): Promise<void> => {
+  return new Promise((resolve) => {
+    // Create a timeline for hero animations
+    const heroTimeline = gsap.timeline({
+      onComplete: () => {
+        // Initialize other scroll-triggered animations after hero is complete
+        initOtherAnimations();
+        resolve();
+      }
+    });
 
-  gsap.fromTo('.hero-subtitle', 
-    { y: 40, opacity: 0 },
-    { y: 0, opacity: 1, duration: 1, delay: 0.3, ease: 'power3.out' }
-  );
+    // Enhanced hero text animations with timeline
+    heroTimeline
+      .fromTo('.hero-title', 
+        { y: 60, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.2, ease: 'power3.out' }
+      )
+      .fromTo('.hero-subtitle', 
+        { y: 40, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }, 
+        '-=0.9'
+      )
+      .fromTo('.hero-tagline', 
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }, 
+        '-=0.7'
+      )
+      .fromTo('.hero-buttons', 
+        { y: 40, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }, 
+        '-=0.5'
+      )
+      .fromTo('.hero-image', 
+        { x: 60, opacity: 0 },
+        { x: 0, opacity: 1, duration: 1.2, ease: 'power3.out' }, 
+        '-=1.0'
+      );
+  });
+};
 
-  gsap.fromTo('.hero-tagline', 
-    { y: 30, opacity: 0 },
-    { y: 0, opacity: 1, duration: 1, delay: 0.5, ease: 'power3.out' }
-  );
-
-  gsap.fromTo('.hero-buttons', 
-    { y: 40, opacity: 0 },
-    { y: 0, opacity: 1, duration: 1, delay: 0.7, ease: 'power3.out' }
-  );
-
-  // Hero image animation
-  gsap.fromTo('.hero-image', 
-    { x: 60, opacity: 0 },
-    { x: 0, opacity: 1, duration: 1.2, delay: 0.4, ease: 'power3.out' }
-  );
-
+const initOtherAnimations = () => {
   // Services cards stagger animation
   gsap.fromTo('.service-card',
     { y: 60, opacity: 0 },
