@@ -14,7 +14,7 @@ const Testimonials: React.FC = () => {
       course: 'MSc Computer Science',
       university: 'University of Edinburgh',
       location: 'Mumbai, India',
-      image: 'https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop',
+      image: 'https://media.istockphoto.com/id/150448854/photo/smiling-young-asian-indian-female.webp?b=1&s=612x612&w=0&k=20&c=GluSVYK5jA6USsGGwvvREMWoP8TP7QJLWCpW-CbTyfQ=',
       rating: 5,
       testimonial: 'The best decision I made — helped me get clarity in one call! Their personalized approach made all the difference in my application.',
       isNew: true
@@ -24,7 +24,7 @@ const Testimonials: React.FC = () => {
       course: 'MBA',
       university: 'London Business School',
       location: 'Delhi, India',
-      image: 'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop',
+      image: 'https://media.istockphoto.com/id/1473711199/photo/face-portrait-student-and-man-in-university-ready-for-back-to-school-learning-goals-or.jpg?s=612x612&w=0&k=20&c=Xrwp5ePvm6RjixgAjJo-OAw9oXkLt_HcmT3bdlLZUdw=',
       rating: 5,
       testimonial: 'Amazing support throughout my MBA application. They understood my goals and helped me craft a compelling story.',
       isNew: false
@@ -34,7 +34,7 @@ const Testimonials: React.FC = () => {
       course: 'MA International Relations',
       university: 'King\'s College London',
       location: 'Bangalore, India',
-      image: 'https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop',
+      image: 'https://thumbs.dreamstime.com/b/serious-young-indian-woman-standing-indoor-arms-crossed-unsmiling-dressed-blue-casual-shirt-having-calm-composed-face-364421490.jpg',
       rating: 5,
       testimonial: 'Professional, reliable, and genuinely caring. They made the complex visa process so much easier to navigate.',
       isNew: true
