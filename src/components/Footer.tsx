@@ -53,6 +53,7 @@ const Footer: React.FC = () => {
               </a>
               <a 
                 href="https://www.linkedin.com/company/guggilla-global-edu/" 
+                target="_blank"
                 className="text-secondary-400 hover:text-blue-400 transition-colors duration-300"
               >
                 <Linkedin size={24} />
