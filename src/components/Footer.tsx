@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
                 <MessageCircle size={24} />
               </a>
               <a 
-                href="#" 
+                href="https://www.linkedin.com/company/guggilla-global-edu/" 
                 className="text-secondary-400 hover:text-blue-400 transition-colors duration-300"
               >
                 <Linkedin size={24} />
